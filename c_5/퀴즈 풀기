@@ -1,0 +1,25 @@
+#include <stdio.h>
+int main()
+{
+    int A;
+    int B;
+
+    printf(" 두 정수 A와 B를 입력하시오: ");
+    scanf("%d %d",&A,&B);
+    if (A>B)
+    {
+        printf(">");
+    }
+    if (A<B)
+    {
+        printf("<");
+    }
+    else
+    {
+        printf("==");
+    }
+    
+    
+
+    
+}
