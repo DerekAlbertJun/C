@@ -1,1 +1,299 @@
 
+#include <stdlib.h> /*난수 생성을 위한 헤더파일*/
+#include <stdio.h> /*표준 입출력을 위한 헤더파일*/
+#include <time.h> /*항상 변화하는 숫자를 위해*/
+
+int coin_toss() /*coin_toss()란 함수를 생성. 앞면에는 1, 뒷면에는 0을 지정할 예정 동전은 0  아니면 1이 나옴*/
+{
+    int head=rand()%2;
+    return head;
+}
+
+
+
+int main()
+{
+    int toss;
+    int heads=0;
+    int tails=0;
+    srand((unsigned)time(NULL));//난수 생성
+
+    for (toss=0; toss<100; toss++)
+    {
+        if (coin_toss()==1)/*1이면 앞면 0이면 뒷면*/
+        {
+            heads++;
+        }
+        else
+        {
+            tails++;
+        }
+        
+    }
+
+    printf("동전의 앞면이 나온 횟수:%d\n",heads);//앞면 횟수 출력
+    printf("동전의 뒷면이 나온 횟수:%d\n",tails);//뒷면 횟수 출력
+    return 0;
+}
+
+#include <stdlib.h>//난수 생성 및, getchar()함수를 위한 헤더파일
+#include <stdio.h>//표준 입출력을 위한 헤더파일
+/*#include <conio.h> 
+#include <stdlib.h> 헤더 파일 안에 있는 getchar()함수로
+대체*/
+#include <time.h>
+
+void disp_car(int car_number, int distance)//disp_car이라는 함수를 만들었다
+{
+    int i;
+    printf("CAR #%d:",car_number);
+    for ( i = 0; i < distance/10; i++)
+    {
+        printf("*");
+    }
+    printf("\n");
+    
+}
+int main()
+{
+    int i;
+    int car1_dist=0, car2_dist=0;
+
+    srand((unsigned)time(NULL));//난수 생성
+    
+    for ( i = 0; i < 6; i++)
+    {
+        car1_dist +=rand()%100; //rand()함수로 난수를 발생시킴. 난수 범위 조절을 위해 %연산자 를 이용해, 0에서 99로 제한
+        car2_dist +=rand()%100;
+        disp_car(1,car1_dist);
+        disp_car(2,car2_dist);
+        printf("------------------\n");
+        getchar();
+    }
+    return 0;
+    
+
+}
+
+#include <stdlib.h>//난수 생성 및, getchar()함수를 위한 헤더파일
+#include <stdio.h>//표준 입출력을 위한 헤더파일
+/*#include <conio.h> 
+#include <stdlib.h> 헤더 파일 안에 있는 getchar()함수로
+대체*/
+#include <time.h>
+
+void disp_car(int car_number, int distance)//disp_car이라는 함수를 만들었다
+{
+    int i;
+    printf("CAR #%d:",car_number);
+    for ( i = 0; i < distance/10; i++)
+    {
+        printf("*");
+    }
+    printf("\n");
+    
+}
+int main()
+{
+    int i;
+    int car1_dist=0, car2_dist=0, car3_dist=0;
+
+    srand((unsigned)time(NULL));//난수 생성
+    
+    for ( i = 0; i < 6; i++)
+    {
+        car1_dist +=rand()%100; //rand()함수로 난수를 발생시킴. 난수 범위 조절을 위해 %연산자 를 이용해, 0에서 99로 제한
+        car2_dist +=rand()%100;
+        car3_dist +=rand()%100;
+        disp_car(1,car1_dist);
+        disp_car(2,car2_dist);
+        disp_car(3,car3_dist);
+        printf("------------------\n");
+        getchar();
+    }
+    return 0;
+    
+
+}
+
+#include <math.h> //여러 수학 함수들을 포함하는 표준 라이브러리
+#include <stdio.h>
+
+int main()
+{
+    double pi=3.1415926535;
+    double x, y;
+
+    x = pi/2;
+    y = sin(x);
+    printf("sin(%f)=%f\n",x,y);//원주율 절반의 sin값 출력
+    y = cos(x);
+    printf("cos(%f)=%f\n",x,y);//원주율 절반의 cos값 출력
+}
+
+#include <stdlib.h>//getchar()함수를 위한 헤더파일
+#include <stdio.h>//표준 입출력을 위한 헤더파일
+
+int main()
+{
+    system("dir");
+    printf("아무거나 치세요\n");
+    getchar();
+    system("cls");
+
+    return 0;
+}
+
+#include <stdio.h>//입출력을 위한 헤더파일
+#include <time.h>//시간 헤더파일
+
+int main()
+{
+    time_t start, end; //time_t는 unsigned long과 동일하다
+    start = time(NULL);   //time()은 1970년 1월 1일 이후의 시간을 초 단위로 변환한다
+    printf("10초가 되면 엔터키를 누르세요\n");
+
+    while (1)
+    {
+        if (getchar())//키가 눌리면 멈춘다
+        {
+            printf("종료되었습니다.\n");
+            end=time(NULL);
+            
+            printf("경과된 시간은 %1ld 초입니다.\n" , end - start);
+
+            break;
+        }
+        return 0;
+    }
+}
+
+#define _CRT_SECURE_NO_WARNINGS//scanf()에러 방지
+#include <math.h>//삼각함수를 쓰기 위한 헤더파일
+#include <stdio.h>//입출력을 위한 헤더파일
+
+int main()
+{
+    double height, distance, tree_height, degrees, radians;
+
+    printf("나무와의 길이(단위는 미터: ");
+    scanf("%lf",&distance);//거리 입력
+
+    printf("측정자의 키(단위는 미터): ");
+    scanf("%lf",&height);//높이 입력
+
+    printf("각도(단위는 도): ");
+    scanf("%lf",&degrees);//각도 입력
+
+    radians=degrees*(3.141592/180.0);//각도를 라디안으로 변환. 삼각함수를 위해
+
+    tree_height=tan(radians)*distance+height;//삼각함수를 이용
+    printf("나무의 높이(단위는 미터):%lf\n",tree_height);
+
+    return 0;
+}
+
+#include <stdio.h>
+#include <math.h>
+#define PI 3.141592//매크로 지정. PI는 3.141592이다.
+
+double rad(double degree)//rad라는 함수 지정. 각도를 라디안으로 변화하기 위해
+{
+    return PI*degree/180.0;
+}
+void drawbar(int height)//drawbar라는 함수 지정. *찍기 위해
+{
+    for (int i = 0; i < height; i++)
+    {
+        printf("*");
+    }
+    printf("\n");
+}
+int main()
+{
+    int degree, x, y;
+    for (degree = 0; degree <= 180; degree+=10)
+    {//sin값은 -1에서 1이므로 정수로 반올림하여서 증폭한다. 출력된 모습이 한주기 값이므로 degree<=180
+     y=(int)(60*sin(rad((double)degree))+0.5);
+     drawbar(y);   
+    }
+    return 0;
+    
+}
+
+#include <stdio.h>
+#include <math.h>
+
+int menu(void)//menu란 함수 지정
+{
+    int n;
+    printf("1.팩토리얼\n");
+    printf("2.싸인\n");
+    printf("3.로그(base 10)\n");
+    printf("4.제곱근\n");
+    printf("5.순열(nPr)\n");
+    printf("6.조합(nCr)\n");
+    printf("7.종료\n");
+    printf("선택해주세요: ");
+    scanf("%d",&n);
+    return n;
+}
+void factorial()//factorial이란 함수 지정
+{
+    long long n, result=1, i;
+    printf("정수를 입력하시오: ");
+    scanf("%1ld",&n);
+    for (i = 1; i <= n; i++)
+    {
+        result=result*i;
+    }
+    printf("결과=%11d\n\n",result);
+}
+ void sine()//sine이란 함수 지정
+ {
+    double a, result;
+    printf("각도를 입력하시오: ");
+    scanf("$lf",&a);
+    result=sin(a);
+    printf("결과=%lf\n\n", result);
+ }
+ void logBase10()//logBase10이란 함수 지정
+ {
+    double a, result;
+    printf("실수값을 입력하시오: ");
+    scanf("%lf",&a);
+    if (a<=0.0)
+    {
+        printf("오류\n");
+    }
+    else
+    {
+        result=log10(a);
+        printf("결과=%lf\n\n", result);
+    }
+ }
+ int main()
+ {
+    while (1)
+    {
+        switch (menu())
+        {
+        case 1:
+            factorial();//1번일 경우
+            break;
+        case 2:
+            sine();//2번일 경우
+            break;
+        case 3:
+            logBase10();//3번일 경우
+            break;
+        case 7:
+            printf("종료합니다.\n");
+            return 0;
+        
+        default:
+            printf("잘못된 선택입니다.\n");
+            break;
+        }
+    }
+ }
